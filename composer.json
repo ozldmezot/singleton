@@ -1,0 +1,22 @@
+{
+    "name": "ozldmezot/singleton",
+	"type": "library",
+	"keywords": ["singleton"],
+	"homepage": "https://github.com/ozldmezot/singleton",
+	"license": "GNU GPL v3",
+	"authors": [
+        {
+            "name": "Emils Kalnins",
+            "email": "emils.kalnins@outlook.com",
+            "role": "Developer"
+        }
+    ],
+	"require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-0" : {
+            "Ozldmezot\\Singleton" : "src"
+        }
+    }
+}
