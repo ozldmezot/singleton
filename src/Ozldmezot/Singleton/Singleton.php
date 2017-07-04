@@ -2,17 +2,23 @@
 
 abstract class Singleton
 {
-    public static $instance;
+    protected static $instances;
 
     public function __construct($alias, $instance)
     {
-
-        self::$instance  = $instance;
-        class_alias(__CLASS__, $alias);
+        $class = get_called_class();
+        class_alias($class, $alias);
+        static::$instances[$class] = $instance;
     }
 
     public static function __callStatic($name, $arguments)
     {
-        return call_user_func_array([self::$instance, $name], $arguments);
+        $instance = static::$instances[get_called_class()];
+        return call_user_func_array([$instance, $name], $arguments);
+    }
+
+    public static function instance()
+    {
+        return static::$instances[get_called_class()];
     }
 }
