@@ -21,7 +21,7 @@ abstract class Singleton
             self::$instance = $reflector->newInstanceArgs(self::$arguments);
 
         }
-        call_user_func_array([self::$instance, $name], $arguments);
+        return call_user_func_array([self::$instance, $name], $arguments);
     }
 
 }
